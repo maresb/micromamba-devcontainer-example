@@ -1,0 +1,19 @@
+[build-system]
+requires = ["poetry-core>=1.0.8"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "example-project"
+version = "1.0.0"
+description = "Demonstrate the micromamba devcontainer"
+authors = ["Ben Mares <services-micromamba-devcontainer@tensorial.com>"]
+license = "MIT"
+packages = [
+    { include = "example_project", from = "pypackages" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.10, <3.11"
+
+[tool.poetry.scripts]
+example-hello-world = "example_project.main:hello"

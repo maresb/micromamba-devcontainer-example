@@ -1,0 +1,17 @@
+name: base
+channels:
+  - conda-forge
+
+  # The following are necessary to install the dev version of Poetry. See
+  # <https://github.com/conda-forge/poetry-feedstock/issues/57#issuecomment-1022805023>
+  - conda-forge/label/poetry_dev
+  - conda-forge/label/cleo_dev
+
+dependencies:
+  - python =3.10
+  - poetry >=1.2.0a2
+  - pre-commit
+  - black
+  - isort
+  - flake8
+  - pytest

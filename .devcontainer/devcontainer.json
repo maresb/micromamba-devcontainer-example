@@ -1,5 +1,18 @@
 {
-	"name": "my-devcontainer",
+	"name": "my-devcontainer-title",
+	"runArgs": ["--hostname", "my-devcontainer-hostname"],
+	"build": {
+		"dockerfile": "dev.Dockerfile",
+		"context": "../",
+	},
+	"overrideCommand": false,  // allow the entrypoint to run
+	// "onCreateCommand": ["/usr/local/bin/_onCreateCommand.sh"],
+	// "postCreateCommand": ["/usr/local/bin/_postCreateCommand.sh"],
+	"mounts": [
+		"source=${localWorkspaceFolder},target=/work,type=bind,consistency=cached",
+		"source=${localWorkspaceFolder}/.devcontainer/cache,target=/mnt/cache,type=bind,consistency=cached",
+		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind,consistency=cached",
+	],
 	"workspaceFolder": "/work",
 	"extensions": [
 		"ms-python.python",
@@ -13,11 +26,7 @@
 		"mutantdino.resourcemonitor",
 		"github.copilot",
 	],
-	"dockerComposeFile": [
-		"dev-docker-compose.yaml",
-	],
 	"remoteUser": "mambauser",
-	"service": "example-project-dev",
 	"settings": {
 		// Disable telemetry
 		"telemetry.enableTelemetry": false,

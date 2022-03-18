@@ -1,4 +1,4 @@
-FROM ghcr.io/maresb/micromamba-devcontainer:git-6c74b07
+FROM ghcr.io/maresb/micromamba-devcontainer:git-227acd9
 
 # Copy over the list of Conda packages for our development environment.
 COPY --chown=$MAMBA_USER:$MAMBA_USER .devcontainer/dev-conda-environment.yaml /tmp/dev-conda-environment.yaml
@@ -30,6 +30,3 @@ RUN : \
 
 # Install dependencies
 RUN poetry install
-
-# Default to running Bash.
-CMD ["/bin/bash"]

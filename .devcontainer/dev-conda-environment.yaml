@@ -15,3 +15,5 @@ dependencies:
   - isort
   - flake8
   - pytest
+  - mamba
+  - conda-lock

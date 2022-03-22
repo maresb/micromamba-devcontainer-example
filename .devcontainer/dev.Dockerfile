@@ -1,4 +1,4 @@
-FROM ghcr.io/maresb/micromamba-devcontainer:git-git-b089792
+FROM ghcr.io/maresb/micromamba-devcontainer:git-b089792
 
 # Copy over the list of Conda packages for our development environment.
 COPY --chown=$MAMBA_USER:$MAMBA_USER .devcontainer/dev-conda-environment.yaml /tmp/dev-conda-environment.yaml

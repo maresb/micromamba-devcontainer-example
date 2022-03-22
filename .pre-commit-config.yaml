@@ -37,12 +37,12 @@ repos:
   - id: mixed-line-ending
     args: ['--fix=no']
 
-# Enforce coding conventions. WARNING: this is quite strict.
-- repo: https://gitlab.com/pycqa/flake8
-  rev: 4.0.1
+# Upgrade code style to the current Python version.
+- repo: https://github.com/asottile/pyupgrade
+  rev: v2.31.0
   hooks:
-  - id: flake8
-    args: ['--max-line-length=88']  # default of Black
+  - id: pyupgrade
+    args: ["--py310-plus", "--keep-runtime-typing"]
 
 # Organize imports.
 - repo: https://github.com/pre-commit/mirrors-isort
@@ -58,9 +58,9 @@ repos:
   - id: black
     language_version: python3
 
-# Upgrade code style to the current Python version.
-- repo: https://github.com/asottile/pyupgrade
-  rev: v2.31.0
+# Enforce coding conventions. WARNING: this is quite strict.
+- repo: https://gitlab.com/pycqa/flake8
+  rev: 4.0.1
   hooks:
-  - id: pyupgrade
-    args: ["--py310-plus", "--keep-runtime-typing"]
+  - id: flake8
+    args: ['--max-line-length=88']  # default of Black

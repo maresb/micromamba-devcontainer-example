@@ -1,7 +1,10 @@
-FROM ghcr.io/maresb/micromamba-devcontainer:git-8e389af
+FROM ghcr.io/maresb/micromamba-devcontainer:git-d092dd5
 
 # Copy over the list of Conda packages for our development environment.
 COPY --chown=$MAMBA_USER:$MAMBA_USER .devcontainer/dev-conda-environment.yaml /tmp/dev-conda-environment.yaml
+
+# Ensure that all users have read-write access to all files created in the subsequent commands.
+ARG DOCKERFILE_UMASK=0000
 
 # Install the Conda packages.
 RUN : \

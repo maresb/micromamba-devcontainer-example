@@ -18,3 +18,10 @@ dependencies:
   - mamba
   - conda-lock
   - ipykernel
+  - flake8-use-fstring
+  - flake8-blind-except
+  - flake8-builtins
+  - flake8-use-pathlib
+  - pip
+  - pip:
+    - flake8-noqa

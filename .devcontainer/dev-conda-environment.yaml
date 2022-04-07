@@ -18,6 +18,7 @@ dependencies:
   - mamba
   - conda-lock
   - ipykernel
+  - line_profiler
   - flake8-use-fstring
   - flake8-blind-except
   - flake8-builtins

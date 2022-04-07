@@ -6,6 +6,10 @@ COPY --chown=$MAMBA_USER:$MAMBA_USER .devcontainer/dev-conda-environment.yaml /t
 # Ensure that all users have read-write access to all files created in the subsequent commands.
 ARG DOCKERFILE_UMASK=0000
 
+# Install hadolint
+ADD https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64 /usr/local/bin/hadolint
+RUN sudo chmod a+rx /usr/local/bin/hadolint
+
 # Install the Conda packages.
 RUN : \
     && micromamba install -y -f /tmp/dev-conda-environment.yaml \

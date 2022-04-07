@@ -1,6 +1,9 @@
 {
 	"name": "my-devcontainer-title",
-	"runArgs": ["--hostname", "my-devcontainer-hostname"],
+	"containerEnv": {
+		"TZ": "Europe/Berlin",
+	},
+	"runArgs": ["--hostname", "devcontainer"],
 	"build": {
 		"dockerfile": "dev.Dockerfile",
 		"context": "../",

@@ -44,6 +44,8 @@
 			"**/*.egg-info": true,
 			// Ignore Jupyter checkpoint files
 			"**/.ipynb_checkpoints": true,
+			// Ignore cache directory, except for files which start with . (e.g. .gitignore)
+			".devcontainer/cache/*/[!\\.]*": true,
 		},
 
 		// For linting (code format checking), disable pylint and enable

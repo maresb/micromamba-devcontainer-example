@@ -1,4 +1,4 @@
-FROM ghcr.io/maresb/micromamba-devcontainer:git-b346b42
+FROM ghcr.io/maresb/micromamba-devcontainer:git-0657942
 
 # Copy over the list of Conda packages for our development environment.
 COPY --chown=$MAMBA_USER:$MAMBA_USER .devcontainer/dev-conda-environment.yaml /tmp/dev-conda-environment.yaml
@@ -19,14 +19,9 @@ ARG MAMBA_DOCKERFILE_ACTIVATE=1
 # Tell poetry to install things in the base conda environment instead of a separate venv.
 RUN poetry config virtualenvs.create false
 
+# Create and set the workspace folder
 ARG CONTAINER_WORKSPACE_FOLDER=/workspaces/default-workspace-folder
-
-RUN : \
-    && sudo mkdir /workspaces \
-    && sudo chown "${MAMBA_USER}":"${MAMBA_USER}" /workspaces \
-    && sudo mkdir -p "${CONTAINER_WORKSPACE_FOLDER}" \
-    && sudo chown $MAMBA_USER:$MAMBA_USER "${CONTAINER_WORKSPACE_FOLDER}" \
-    ;
+RUN mkdir -p "${CONTAINER_WORKSPACE_FOLDER}"
 WORKDIR "${CONTAINER_WORKSPACE_FOLDER}"
 
 # Copy only the files necessary to install the dependencies.

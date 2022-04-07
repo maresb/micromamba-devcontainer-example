@@ -19,7 +19,15 @@ ARG MAMBA_DOCKERFILE_ACTIVATE=1
 # Tell poetry to install things in the base conda environment instead of a separate venv.
 RUN poetry config virtualenvs.create false
 
-WORKDIR ${DEV_WORK_DIR}
+ARG CONTAINER_WORKSPACE_FOLDER=/workspaces/default-workspace-folder
+
+RUN : \
+    && sudo mkdir /workspaces \
+    && sudo chown "${MAMBA_USER}":"${MAMBA_USER}" /workspaces \
+    && sudo mkdir -p "${CONTAINER_WORKSPACE_FOLDER}" \
+    && sudo chown $MAMBA_USER:$MAMBA_USER "${CONTAINER_WORKSPACE_FOLDER}" \
+    ;
+WORKDIR "${CONTAINER_WORKSPACE_FOLDER}"
 
 # Copy only the files necessary to install the dependencies.
 # (Remember that we will bind-mount the full project folder after build time.)

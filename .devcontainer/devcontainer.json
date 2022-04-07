@@ -4,6 +4,9 @@
 	"build": {
 		"dockerfile": "dev.Dockerfile",
 		"context": "../",
+		"args": {
+			"CONTAINER_WORKSPACE_FOLDER": "${containerWorkspaceFolder}",
+		}
 	},
 	"overrideCommand": false,  // allow the entrypoint to run
 	// "onCreateCommand": ["/usr/local/bin/_onCreateCommand.sh"],
@@ -13,7 +16,6 @@
 		"source=${localWorkspaceFolder}/.devcontainer/cache,target=/mnt/cache,type=bind,consistency=cached",
 		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind,consistency=cached",
 	],
-	"workspaceFolder": "/work",
 	"extensions": [
 		"ms-python.python",
 		"ms-python.vscode-pylance",
@@ -25,6 +27,8 @@
 		"eamodio.gitlens",
 		"mutantdino.resourcemonitor",
 		"github.copilot",
+		"davidanson.vscode-markdownlint",
+		"exiasr.hadolint",
 	],
 	"remoteUser": "mambauser",
 	"settings": {
@@ -49,7 +53,10 @@
 		"python.linting.flake8Enabled": true,
 		"python.linting.flake8Args": [
 			"--max-line-length=88",
-			"--extend-ignore=E203"
+			// Let black handle formatting: <https://stackoverflow.com/q/59241007>
+			// Also exclude isort stuff: <https://stackoverflow.com/a/69396215>
+			// But don't exclude E5 for line length
+			"--extend-ignore=E101,E111,E114,E115,E116,E117,E12,E13,E2,E3,E401,E70,W1,W2,W3,W5,E4,W4",
 		],
 
 		// Turn on "black" for automatic code formatting
@@ -73,6 +80,9 @@
 
 		// Use isort for imports
 		"python.sortImports.path": "/opt/conda/bin/isort",
+		"python.sortImports.args": [
+			"--profile=black"
+		],
 
 		// Interpret lines beginning with "# !%" as ipython magic commands
 		"jupyter.magicCommandsAsComments": true,

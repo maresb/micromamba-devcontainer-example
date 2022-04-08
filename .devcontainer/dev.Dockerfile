@@ -1,8 +1,5 @@
 FROM ghcr.io/maresb/micromamba-devcontainer:git-0657942
 
-# Copy over the list of Conda packages for our development environment.
-COPY --chown=$MAMBA_USER:$MAMBA_USER .devcontainer/dev-conda-environment.yaml /tmp/dev-conda-environment.yaml
-
 # Ensure that all users have read-write access to all files created in the subsequent commands.
 ARG DOCKERFILE_UMASK=0000
 
@@ -11,7 +8,9 @@ ADD https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linu
 RUN sudo chmod a+rx /usr/local/bin/hadolint
 
 # Install the Conda packages.
+COPY --chown=$MAMBA_USER:$MAMBA_USER .devcontainer/dev-conda-environment.yaml /tmp/dev-conda-environment.yaml
 RUN : \
+    && micromamba config append channels conda-forge \
     && micromamba install -y -f /tmp/dev-conda-environment.yaml \
     && micromamba clean --all --yes \
     ;

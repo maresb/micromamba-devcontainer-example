@@ -9,16 +9,22 @@ channels:
 
 dependencies:
   - python =3.10
+  - git  # Also installed from Ubuntu, but this is newer.
+  - xonsh
   - poetry >=1.2.0a2
   - pre-commit
   - black
   - isort
   - flake8
   - pytest
+  - pytest-asyncio
   - mamba
+  - pipx
+  - condax
   - conda-lock
   - ipykernel
   - line_profiler
+  - cookiecutter
   - flake8-use-fstring
   - flake8-blind-except
   - flake8-builtins

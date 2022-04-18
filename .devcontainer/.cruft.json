@@ -1,0 +1,15 @@
+{
+  "template": "https://gitlab.com/bmares/cookiecutter-micromamba-devcontainer",
+  "commit": "91f5e605876c70d2001a30c23578d7ea10082bab",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "example_project",
+      "python_version": "3.10",
+      "timezone": "Europe/Berlin",
+      "source_dir": "pypackages/",
+      "_template": "https://gitlab.com/bmares/cookiecutter-micromamba-devcontainer"
+    }
+  },
+  "directory": null
+}

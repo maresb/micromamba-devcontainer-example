@@ -1,4 +1,4 @@
-FROM ghcr.io/maresb/micromamba-devcontainer:git-0657942
+FROM ghcr.io/maresb/micromamba-devcontainer:git-32b6d3f
 
 # Ensure that all users have read-write access to all files created in the subsequent commands.
 ARG DOCKERFILE_UMASK=0000
@@ -10,6 +10,7 @@ RUN sudo chmod a+rx /usr/local/bin/hadolint
 # Install the Conda packages.
 COPY --chown=$MAMBA_USER:$MAMBA_USER .devcontainer/dev-conda-environment.yaml /tmp/dev-conda-environment.yaml
 RUN : \
+    # Configure Conda to use the conda-forge channel.
     && micromamba config append channels conda-forge \
     && micromamba install -y -f /tmp/dev-conda-environment.yaml \
     && micromamba clean --all --yes \
@@ -33,8 +34,8 @@ COPY --chown=$MAMBA_USER:$MAMBA_USER pyproject.toml poetry.lock ./
 
 # An __init__.py is also required for poetry to perform the initial install.
 RUN : \
-    && mkdir -p pypackages/example_project \
-    && touch pypackages/example_project/__init__.py \
+    && mkdir -p "pypackages//example_project" \
+    && touch "pypackages//example_project/__init__.py" \
     ;
 
 # Install dependencies

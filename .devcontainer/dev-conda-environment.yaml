@@ -25,6 +25,7 @@ dependencies:
   - ipykernel
   - line_profiler
   - cookiecutter
+  - cruft
   - flake8-use-fstring
   - flake8-blind-except
   - flake8-builtins

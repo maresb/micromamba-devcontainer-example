@@ -1,6 +1,6 @@
 # micromamba-devcontainer-example
 
-This is an example project which uses [micromamba-devcontainer](https://github.com/maresb/micromamba-devcontainer).
+This is an example project which uses [micromamba-devcontainer](https://github.com/maresb/micromamba-devcontainer). The `.devcontainer` folder was created using [Cruft](https://github.com/cruft/cruft) with [cookiecutter-micromamba-devcontainer](https://gitlab.com/bmares/cookiecutter-micromamba-devcontainer).
 
 ## Deploying with an existing project
 

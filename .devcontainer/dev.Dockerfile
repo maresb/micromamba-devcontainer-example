@@ -34,8 +34,9 @@ COPY --chown=$MAMBA_USER:$MAMBA_USER pyproject.toml poetry.lock ./
 
 # An __init__.py is also required for poetry to perform the initial install.
 RUN : \
-    && mkdir -p "pypackages/example_project" \
-    && touch "pypackages/example_project/__init__.py" \
+    && PACKAGE_DIR="pypackages/example_project" \
+    && mkdir -p "${PACKAGE_DIR}" \
+    && touch "${PACKAGE_DIR}/__init__.py" \
     ;
 
 # Install dependencies

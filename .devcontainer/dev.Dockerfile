@@ -1,9 +1,10 @@
-FROM ghcr.io/maresb/micromamba-devcontainer:git-32b6d3f
+FROM ghcr.io/maresb/micromamba-devcontainer:git-fa91463
 
 # Ensure that all users have read-write access to all files created in the subsequent commands.
 ARG DOCKERFILE_UMASK=0000
 
-# Install hadolint
+# Install hadolint for Dockerfile linting (unfortunately not yet available on conda-forge)
+# <https://github.com/conda-forge/staged-recipes/pull/14581>
 ADD https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64 /usr/local/bin/hadolint
 RUN sudo chmod a+rx /usr/local/bin/hadolint
 

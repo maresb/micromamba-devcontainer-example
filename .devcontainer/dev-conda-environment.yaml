@@ -22,7 +22,8 @@ dependencies:
   - pipx
   - condax
   - conda-lock
-  - ipykernel
+  - ipykernel  # Jupyter notebooks in VS Code
+  - nbformat  # Additional utilities for Jupyter notebooks (e.g. Plotly support)
   - line_profiler
   - cookiecutter
   - cruft
@@ -30,6 +31,10 @@ dependencies:
   - flake8-blind-except
   - flake8-builtins
   - flake8-use-pathlib
+  - flake8-noqa
   - pip
-  - pip:
-    - flake8-noqa
+
+  # # In case you want to install packages from PyPI which aren't on Conda-Forge,
+  # # uncomment this block and add them as follows:
+  # - pip:
+  #   - flake8-noqa  # Example

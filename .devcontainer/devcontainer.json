@@ -105,6 +105,9 @@
 		"python.pythonPath": "/opt/conda/bin/python",
 		"python.defaultInterpreterPath": "/opt/conda/bin/python",
 
+		// Disable the "conda activate base" command when opening a new terminal
+		"python.terminal.activateEnvironment": false,
+
 		"terminal.integrated.inheritEnv": false,
 	},
 }

@@ -1,4 +1,4 @@
-FROM ghcr.io/maresb/micromamba-devcontainer:git-2227cd0
+FROM ghcr.io/mamba-org/micromamba-devcontainer:git-8c92639
 
 # Ensure that all users have read-write access to all files created in the subsequent commands.
 ARG DOCKERFILE_UMASK=0000
@@ -35,9 +35,8 @@ COPY --chown=$MAMBA_USER:$MAMBA_USER pyproject.toml poetry.lock ./
 
 # An __init__.py is also required for poetry to perform the initial install.
 RUN : \
-    && PACKAGE_DIR="packages/example_project" \
-    && mkdir -p "${PACKAGE_DIR}" \
-    && touch "${PACKAGE_DIR}/__init__.py" \
+    && mkdir -p "packages/example_project" \
+    && touch "packages/example_project/__init__.py" \
     ;
 
 # Install dependencies

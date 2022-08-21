@@ -11,9 +11,6 @@ dependencies:
   - python =3.10
   - git  # Also installed from Ubuntu, but this is newer.
   - xonsh
-  # Workaround until <https://github.com/xonsh/xonsh/pull/4903> is released.
-  - virtualenv <=20.15
-
   - poetry >=1.2.0a2
   - poetry-core ==1.1.0a7  # The solver seems broken in the 1.1.0b# series.
   - pre-commit

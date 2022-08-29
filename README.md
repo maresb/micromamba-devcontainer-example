@@ -6,7 +6,7 @@ This is an example project which uses [micromamba-devcontainer](https://github.c
 
 * This project's [GitHub repository](https://github.com/maresb/micromamba-devcontainer-example)
 * The [micromamba-devcontainer](https://github.com/maresb/micromamba-devcontainer) base Docker image
-* The [cookiecutter-micromamba-devcontainer](https://gitlab.com/bmares/cookiecutter-micromamba-devcontainer) template for the `.devcontainer` folder
+* The [cookiecutter-micromamba-devcontainer](https://github.com/maresb/cookiecutter-micromamba-devcontainer) template for the `.devcontainer` folder
 * [Cruft](https://github.com/cruft/cruft) for creating and updating projects from Cookiecutter templates
 
 ## Deploying with an existing project
@@ -15,13 +15,13 @@ This is an example project which uses [micromamba-devcontainer](https://github.c
 * Create `.devcontainer` by running the command
 
   ```bash
-  cruft create https://gitlab.com/bmares/cookiecutter-micromamba-devcontainer
+  cruft create https://github.com/maresb/cookiecutter-micromamba-devcontainer
   ```
 
   or
 
   ```bash
-  cookiecutter https://gitlab.com/bmares/cookiecutter-micromamba-devcontainer
+  cookiecutter https://github.com/maresb/cookiecutter-micromamba-devcontainer
   ```
 
   You will be asked values for the following variables, which are stored in [`.devcontainer/.cruft.json`](.devcontainer/.cruft.json):

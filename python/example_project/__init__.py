@@ -1,3 +1,2 @@
-import importlib.metadata
-
-__version__ = importlib.metadata.version(__package__)
+# Single source of truth for package version:
+__version__ = "1.0.0"

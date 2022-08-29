@@ -9,7 +9,7 @@ This is an example project which uses [micromamba-devcontainer](https://github.c
 * The [cookiecutter-micromamba-devcontainer](https://gitlab.com/bmares/cookiecutter-micromamba-devcontainer) template for the `.devcontainer` folder
 * [Cruft](https://github.com/cruft/cruft) for creating and updating projects from Cookiecutter templates
 
-## Deploying with an existing Poetry project
+## Deploying with an existing project
 
 * Install [Cruft](https://github.com/cruft/cruft) (also manages updates) or [Cookiecutter](https://cookiecutter.readthedocs.io/en/stable/installation.html).
 * Create `.devcontainer` by running the command
@@ -33,7 +33,7 @@ This is an example project which uses [micromamba-devcontainer](https://github.c
 
 * If your project uses Docker, ensure that your `.dockerignore` contains `.devcontainer/cache`.
 * Customize `.devcontainer/dev-conda-environment.yaml` with your desired Conda development packages.
-* Customize `.devcontainer/dev.Dockerfile` to install (a skeleton of) your project, preferrably in editable mode (e.g. `pip install -e .` or `poetry install`). This way the project dependencies will be installed in the Docker image.
+* Customize `.devcontainer/dev.Dockerfile` to install (a skeleton of) your project, preferrably in editable mode (e.g. `pip install -e .`). This way the project dependencies will be installed in the devcontainer.
 * Customize the `extensions` and `settings` in `.devcontainer/devcontainer.json`.
 * Press Ctrl+Shift+P and select "Remote-Containers: Rebuild and Reopen in Container", and if all goes well, this will load successfully.
 

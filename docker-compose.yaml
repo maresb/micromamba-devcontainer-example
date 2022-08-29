@@ -1,11 +1,11 @@
 # This is for starting the non-development Docker container.
 
-version: "3.7"
+version: '3.7'
 
 services:
   example-project:
     build:
       context: .
     volumes:
-        - ${LOCAL_WORKSPACE_FOLDER:-.}:/usr/src
+    - ${LOCAL_WORKSPACE_FOLDER:-.}:/usr/src
     command: example-hello-world

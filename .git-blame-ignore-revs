@@ -1,0 +1,7 @@
+# This file consists of comments and commit ids to ignore
+# when computing the git blame. This is useful for retaining
+# attribution after using tools like "black" to format code.
+
+# Example:
+# Ran "black" to reformat code
+b6da245034dc8e85cec0d5adf79e3c081c6fb740

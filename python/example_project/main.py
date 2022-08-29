@@ -1,4 +1,4 @@
-import cowsay
+import cowsay  # type: ignore  # (No available type stubs for cowsay)
 
 
 def hello():

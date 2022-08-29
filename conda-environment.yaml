@@ -1,8 +1,13 @@
+# This is for non-development Conda packages.
+# (Development-only packages are specified in .devcontainer/dev-conda-environment.yaml.)
+
 name: base
 channels:
 - conda-forge
 dependencies:
 - python ==3.10
+# It's important that pip is here and not in in dev dependencies since we need
+# it to be accessible in our Dockerfile.
 - pip
 platforms:
 - linux-64

@@ -1,0 +1,9 @@
+name: base
+channels:
+  - conda-forge
+dependencies:
+  - python ==3.10
+  - pip
+platforms:
+  - linux-64
+  - osx-arm64

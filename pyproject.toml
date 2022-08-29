@@ -10,6 +10,9 @@ authors = [
     { name = "Ben Mares", email = "services-micromamba-devcontainer@tensorial.com" },
 ]
 license = "MIT"
+dependencies = [
+    "cowsay >=5.0",
+]
 requires-python = ">=3.10,<3.11"
 
 [tool.hatch.version]

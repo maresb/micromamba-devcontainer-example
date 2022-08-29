@@ -1,2 +1,5 @@
+import cowsay
+
+
 def hello():
-    print("Hello world!")
+    cowsay.cow("Hello world!")

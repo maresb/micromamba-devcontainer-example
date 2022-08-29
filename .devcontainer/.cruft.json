@@ -7,7 +7,7 @@
       "package_name": "example_project",
       "python_version": "3.10",
       "timezone": "Europe/Berlin",
-      "packages_dir": "packages",
+      "packages_dir": "python",
       "_template": "https://github.com/maresb/cookiecutter-micromamba-devcontainer"
     }
   },

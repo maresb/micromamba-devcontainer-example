@@ -9,7 +9,7 @@ description = "Demonstrate the micromamba devcontainer"
 authors = ["Ben Mares <services-micromamba-devcontainer@tensorial.com>"]
 license = "MIT"
 packages = [
-    { include = "example_project", from = "packages" }
+    { include = "example_project", from = "python" }
 ]
 
 [tool.poetry.dependencies]

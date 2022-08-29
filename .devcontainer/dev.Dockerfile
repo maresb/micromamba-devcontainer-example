@@ -36,8 +36,8 @@ WORKDIR "${CONTAINER_WORKSPACE_FOLDER}"
 COPY --chown=$MAMBA_USER:$MAMBA_USER pyproject.toml ./
 # hadolint ignore=DL3021
 COPY --chown=$MAMBA_USER:$MAMBA_USER \
-    "packages/example_project/__init__.py" \
-    "packages/example_project/"
+    "python/example_project/__init__.py" \
+    "python/example_project/"
 
 # Install the package
 RUN pip install --no-cache-dir --editable .

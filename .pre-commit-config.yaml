@@ -44,6 +44,12 @@ repos:
   - id: pretty-format-yaml
     args: [--autofix, --indent, '2']
 
+# Remove spurious flake8 noqa (ignore) comments.
+- repo: https://github.com/asottile/yesqa
+  rev: v1.4.0
+  hooks:
+  - id: yesqa
+
 # Organize imports.
 - repo: https://github.com/pre-commit/mirrors-isort
   rev: v5.6.4
@@ -74,12 +80,6 @@ repos:
   hooks:
   - id: flake8
     args: [--max-line-length=88]    # default of Black
-
-# Remove spurious flake8 noqa (ignore) comments.
-- repo: https://github.com/asottile/yesqa
-  rev: v1.4.0
-  hooks:
-  - id: yesqa
 
 # Type checking
 - repo: https://github.com/pre-commit/mirrors-mypy

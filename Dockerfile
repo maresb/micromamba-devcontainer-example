@@ -23,4 +23,4 @@ COPY "python/example_project/" "python/example_project/"
 COPY pyproject.toml ./
 
 # Install the package
-RUN pip install --editable .
+RUN pip install --no-cache-dir --editable .

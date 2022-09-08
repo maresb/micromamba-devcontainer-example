@@ -15,7 +15,6 @@ dependencies:
 - mamba
 - pipx
 - condax
-- conda-lock
 - ipykernel  # Jupyter notebooks in VS Code
 - nbformat  # Additional utilities for Jupyter notebooks (e.g. Plotly support)
 - line_profiler

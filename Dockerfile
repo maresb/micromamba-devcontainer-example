@@ -1,6 +1,7 @@
 # This is a non-development container for deploying your project.
 
-FROM ghcr.io/mamba-org/micromamba-devcontainer:git-66b407f
+ARG BASE_IMAGE=mambaorg/micromamba:git-70919b8-jammy
+FROM ${BASE_IMAGE}
 
 WORKDIR /usr/src/
 

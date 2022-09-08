@@ -79,7 +79,9 @@ repos:
   rev: 4.0.1
   hooks:
   - id: flake8
-    args: [--max-line-length=88]    # default of Black
+    args:
+    - --max-line-length=88  # default of Black
+    - --extend-ignore=E203  # conflicts with Black
 
 # Type checking
 - repo: https://github.com/pre-commit/mirrors-mypy

@@ -44,13 +44,6 @@ repos:
   - id: pretty-format-yaml
     args: [--autofix, --indent, '2']
 
-# Upgrade code style to the current Python version.
-- repo: https://github.com/asottile/pyupgrade
-  rev: v2.31.0
-  hooks:
-  - id: pyupgrade
-    args: [--py310-plus, --keep-runtime-typing]
-
 # Organize imports.
 - repo: https://github.com/pre-commit/mirrors-isort
   rev: v5.6.4
@@ -64,6 +57,13 @@ repos:
   hooks:
   - id: black
     language_version: python3
+
+# Upgrade code style to the current Python version.
+- repo: https://github.com/asottile/pyupgrade
+  rev: v2.31.0
+  hooks:
+  - id: pyupgrade
+    args: [--py310-plus, --keep-runtime-typing]
 
 # BELOW: ENFORCE CODING CONVENTIONS
 # Warning: some of these can be quite strict.

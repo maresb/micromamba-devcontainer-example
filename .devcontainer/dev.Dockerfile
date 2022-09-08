@@ -26,6 +26,12 @@ RUN : \
 # <https://github.com/mamba-org/micromamba-docker#running-commands-in-dockerfile-within-the-conda-environment>
 ARG MAMBA_DOCKERFILE_ACTIVATE=1
 
+# Install Poetry and Hatch in isolated environments with condax.
+RUN : \
+  && condax install -c conda-forge/label/poetry_dev -c conda-forge/label/cleo_dev -c conda-forge "poetry==1.2.0rc2" \
+  && condax install hatch \
+;
+
 # Create and set the workspace folder
 ARG CONTAINER_WORKSPACE_FOLDER=/workspaces/default-workspace-folder
 RUN mkdir -p "${CONTAINER_WORKSPACE_FOLDER}"
@@ -34,10 +40,20 @@ WORKDIR "${CONTAINER_WORKSPACE_FOLDER}"
 # Copy only the files necessary to install the project.
 # (Remember that we will bind-mount the full project folder after build time.)
 COPY --chown=$MAMBA_USER:$MAMBA_USER pyproject.toml ./
-# hadolint ignore=DL3021
+# Set the version number to zero to avoid cache busting dependency installation
+# when the version number changes.
+RUN : \
+    && mkdir --parents "python/example_project/" \
+    && echo '__version__ = "0.0.0"' > "python/example_project/__init__.py" \
+    ;
+
+# Install the package for the first time to add project-level dependencies
+RUN pip install --no-cache-dir --editable .
+
+# Copy the real __init__.py
 COPY --chown=$MAMBA_USER:$MAMBA_USER \
     "python/example_project/__init__.py" \
     "python/example_project/"
 
-# Install the package
+# Reinstall to fix the version number
 RUN pip install --no-cache-dir --editable .

@@ -1,11 +1,10 @@
 {
   "template": "https://github.com/maresb/cookiecutter-micromamba-devcontainer",
-  "commit": "d744df4be55fe89dc31a8cde3b14c17b530a97f0",
+  "commit": "4648b8928e7396dd354c1a779f5aab9c7b76b2b2",
   "checkout": null,
   "context": {
     "cookiecutter": {
       "package_name": "example_project",
-      "python_version": "3.10",
       "timezone": "Europe/Berlin",
       "packages_dir": "python",
       "_template": "https://github.com/maresb/cookiecutter-micromamba-devcontainer"

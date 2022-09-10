@@ -3,7 +3,6 @@ category: dev
 channels:
 - conda-forge
 dependencies:
-- python =3.10
 - git  # Also installed from Ubuntu, but this is newer.
 - xonsh
 - pre-commit

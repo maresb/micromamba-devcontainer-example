@@ -1,7 +1,8 @@
 # This is a non-development container for deploying your project.
 
 ARG BASE_IMAGE=mambaorg/micromamba:git-70919b8-jammy
-FROM ${BASE_IMAGE}
+# hadolint ignore=DL3006
+FROM "${BASE_IMAGE}"
 
 WORKDIR /usr/src/
 
@@ -9,7 +10,7 @@ WORKDIR /usr/src/
 ENV TZ=Europe/Berlin
 
 # Install the Conda packages.
-COPY --chown=$MAMBA_USER:$MAMBA_USER conda-lock.yml ./
+COPY --chown="${MAMBA_USER}:${MAMBA_USER}" conda-lock.yml ./
 RUN : \
     && micromamba install --yes --name base --file conda-lock.yml \
     && micromamba clean --all --yes \

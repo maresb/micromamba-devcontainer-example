@@ -22,8 +22,8 @@
 	// "onCreateCommand": ["/usr/local/bin/_configure_docker_group.sh"],
 	// "postCreateCommand": ["/usr/local/bin/_postCreateCommand.sh"],
 	"mounts": [
-		"source=pre-commit-cache,target=/mnt/cache/pre-commit,type=volume",
-		"source=micromamba-devcontainer-vscode-server-extensions,target=/mnt/cache/vscode-server-extensions,type=volume",
+		"source=pre-commit-cache-${localEnv:USER},target=/mnt/cache/pre-commit,type=volume",
+		"source=micromamba-devcontainer-vscode-server-extensions-${localEnv:USER},target=/mnt/cache/vscode-server-extensions,type=volume",
 		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind,consistency=cached",
 	],
 	"extensions": [

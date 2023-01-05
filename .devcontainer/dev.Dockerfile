@@ -1,4 +1,4 @@
-FROM ghcr.io/mamba-org/micromamba-devcontainer:git-8eb138e
+FROM ghcr.io/mamba-org/micromamba-devcontainer:git-5dff148
 
 # Ensure that all users have read-write access to all files created in the subsequent commands.
 ARG DOCKERFILE_UMASK=0000
@@ -14,11 +14,9 @@ COPY --chown=$MAMBA_USER:$MAMBA_USER conda-lock.yml /tmp/conda-lock.yml
 RUN : \
     # Configure Conda to use the conda-forge channel
     && micromamba config append channels conda-forge \
-    # Micromamba will install only things from the "main" category, so
-    # we convert the "dev" category to "main"
-    && sed -i 's|- category: dev|- category: main|' /tmp/conda-lock.yml \
     # Install and clean up
-    && micromamba install --yes --name base --file /tmp/conda-lock.yml \
+    && micromamba install --yes --name base \
+        --category dev --category main --file /tmp/conda-lock.yml \
     && micromamba clean --all --yes \
 ;
 
@@ -26,7 +24,7 @@ RUN : \
 # <https://github.com/mamba-org/micromamba-docker#running-commands-in-dockerfile-within-the-conda-environment>
 ARG MAMBA_DOCKERFILE_ACTIVATE=1
 
-# Install Poetry and Hatch in isolated environments with condax.
+# Install Poetry and Hatch in isolated environments with pipx.
 RUN : \
   && pipx install poetry \
   && pipx install hatch \

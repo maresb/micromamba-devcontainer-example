@@ -7,6 +7,10 @@ ENVIRONMENT_FILES = [
     "conda-environment.yaml",
     ".devcontainer/dev-conda-environment.yaml",
 ]
+PLATFORMS = [
+    "linux-64",
+    "osx-arm64",
+]
 
 
 def main():
@@ -18,6 +22,9 @@ def main():
             cmd.extend(["--file", str(env_file_path)])
         else:
             raise FileNotFoundError(f"File not found: {env_file_path}")
+        for platform in PLATFORMS:
+            cmd.extend(["--platform", platform])
+    Path(current_path / "conda-lock.yml").unlink(missing_ok=True)
     subprocess.run(cmd, check=True)
 
 

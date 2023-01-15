@@ -1,0 +1,29 @@
+name: Run cruft update
+
+on:
+  workflow_dispatch:
+  # Running on push to branch allows the action to clean up merged branches.
+  push:
+    branches:
+    - main
+
+jobs:
+  update_base_image:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout source
+      uses: actions/checkout@5c3ccc22eb2c950a0fa5bc7c47190d8e3f7e681a
+    - name: Run cruft update
+      id: run_cruft
+      run: |
+        pipx install cruft
+        cd .devcontainer
+        cruft update -y
+    - name: commit updated files
+      uses: peter-evans/create-pull-request@ee93d78b55ada32aa74b5e9957aac9c2523dd22c
+      with:
+        branch: cruft-update
+        commit-message: Run cruft update
+        title: Run cruft update
+        delete-branch: true
+        reviewers: maresb

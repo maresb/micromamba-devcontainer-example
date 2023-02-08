@@ -93,10 +93,8 @@
 		// Use isort for imports
 		"python.sortImports.path": "/opt/conda/bin/isort",
 		"python.sortImports.args": [
-			"--profile=black",
-			"--src",
-			"${workspaceFolder}"
-		], // <https://github.com/microsoft/vscode-python/issues/14254#issuecomment-708151872>
+			"--settings-path=${workspaceFolder}/pyproject.toml"
+		], // <https://github.com/microsoft/vscode-isort/issues/53#issuecomment-1310754796>
 
 		// Interpret lines beginning with "# !%" as ipython magic commands
 		"jupyter.magicCommandsAsComments": true,

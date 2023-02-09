@@ -1,0 +1,5 @@
+[flake8]
+# default of Black:
+max-line-length=88
+# conflicts with Black:
+extend-ignore=E203

@@ -9,7 +9,7 @@ ENVIRONMENT_FILES = [
 ]
 PLATFORMS = [
     "linux-64",
-    "osx-arm64",
+    "linux-aarch64",
 ]
 
 

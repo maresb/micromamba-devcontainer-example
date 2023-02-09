@@ -28,3 +28,4 @@ example-hello-world = "example_project.main:hello"
 
 [tool.isort]
 src_paths = ["python/"]
+profile = "black"

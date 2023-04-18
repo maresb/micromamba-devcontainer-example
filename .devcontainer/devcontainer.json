@@ -28,6 +28,7 @@
 	"extensions": [
 		"ms-python.python",
 		"ms-python.vscode-pylance",
+		"ms-python.flake8",
 		"ms-python.isort",
 		"ms-toolsai.jupyter",
 		"ms-azuretools.vscode-docker",

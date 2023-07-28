@@ -12,7 +12,7 @@ This is an example project which uses [micromamba-devcontainer](https://github.c
 ## Deploying with an existing project
 
 * Install [Cruft](https://github.com/cruft/cruft) (also manages updates) or [Cookiecutter](https://cookiecutter.readthedocs.io/en/stable/installation.html).
-* Create `.devcontainer` by running the command
+* Create `.devcontainer` in the project root by running the command
 
   ```bash
   cruft create https://github.com/maresb/cookiecutter-micromamba-devcontainer
@@ -30,6 +30,7 @@ This is an example project which uses [micromamba-devcontainer](https://github.c
   * `timezone`: The [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) to configure in the devcontainer.
   * `packages_dir`: The directory where `package_name` is located (often `src`), or `.` for the project root.
 
+* The project root should contain the subdirectory `[packages_dir]/[package_name]`, and moreover this subdirectory should contain an `__init__.py` file.
 * If your project uses Docker, ensure that your `.dockerignore` contains `.devcontainer/cache`.
 * Customize `.devcontainer/dev-conda-environment.yaml` with your desired Conda development packages.
 * Customize `.devcontainer/dev.Dockerfile` to install (a skeleton of) your project, preferrably in editable mode (e.g. `pip install -e .`). This way the project dependencies will be installed in the devcontainer.

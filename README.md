@@ -37,6 +37,6 @@ This is an example project which uses [micromamba-devcontainer](https://github.c
 * Customize the `extensions` and `settings` in `.devcontainer/devcontainer.json`.
 * Press Ctrl+Shift+P and select "Remote-Containers: Rebuild and Reopen in Container", and if all goes well, this will load successfully.
 
-## Troubleshooting
+## Troubleshooting / Quickstart
 
 For more information, see [micromamba-devcontainer](https://github.com/maresb/micromamba-devcontainer#troubleshooting).

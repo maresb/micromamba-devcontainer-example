@@ -1,4 +1,4 @@
-FROM ghcr.io/mamba-org/micromamba-devcontainer:git-ce4303c
+FROM ghcr.io/mamba-org/micromamba-devcontainer:git-3fc6bf4
 
 # Ensure that all users have read-write access to all files created in the subsequent commands.
 ARG DOCKERFILE_UMASK=0000

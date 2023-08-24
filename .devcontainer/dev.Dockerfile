@@ -1,23 +1,28 @@
-FROM ghcr.io/mamba-org/micromamba-devcontainer:git-d175103
+FROM ghcr.io/mamba-org/micromamba-devcontainer:git-ce4303c
 
 # Ensure that all users have read-write access to all files created in the subsequent commands.
 ARG DOCKERFILE_UMASK=0000
 
 # Install hadolint for Dockerfile linting (unfortunately not yet available on conda-forge)
 # <https://github.com/conda-forge/staged-recipes/pull/14581>
-ADD https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64 /usr/local/bin/hadolint
-# hadolint ignore=DL3004
-RUN sudo chmod a+rx /usr/local/bin/hadolint
+ADD --chmod=755 https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64 /usr/local/bin/hadolint
+
+# Install the fix-permissions script
+ADD --chmod=755 https://raw.githubusercontent.com/jupyter/docker-stacks/a5b40a6f1117bd675565b3673e063125dd74eac3/images/docker-stacks-foundation/fix-permissions /usr/local/bin/fix-permissions
 
 # Install the Conda packages.
 COPY --chown=$MAMBA_USER:$MAMBA_USER conda-lock.yml /tmp/conda-lock.yml
 RUN : \
+    # Create a fixed group for /opt/conda in case the user GID changes
+    && sudo groupadd --gid 46328 mamba-admin \
+    && sudo usermod -aG mamba-admin "${MAMBA_USER}" \
     # Configure Conda to use the conda-forge channel
     && micromamba config append channels conda-forge \
     # Install and clean up
     && micromamba install --yes --name base \
         --category dev --category main --file /tmp/conda-lock.yml \
-    && micromamba clean --all --yes \
+    && micromamba clean --all --force-pkgs-dirs --yes \
+    && sudo -E "NB_GID=mamba-admin" fix-permissions "${MAMBA_ROOT_PREFIX}" \
 ;
 
 # Activate the conda environment for the Dockerfile.

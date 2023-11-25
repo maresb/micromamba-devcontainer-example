@@ -5,10 +5,10 @@ name: base
 channels:
 - conda-forge
 dependencies:
-- python =3.10
+- python >=3.10,<3.13
 # It's important that pip is here and not in in dev dependencies since we need
 # it to be accessible in our Dockerfile.
-# Reference: <https://github.com/mamba-org/mamba/issues/1209?notification_referrer_id=NT_kwDOAOgwL7MyNTM4NTI2NDI3OjE1MjE2Njg3#issuecomment-1236086736>
+# Reference: <https://github.com/mamba-org/mamba/issues/1209#issuecomment-1236086736>
 - pip
 platforms:
 - linux-64

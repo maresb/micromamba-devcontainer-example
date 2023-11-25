@@ -1,5 +1,8 @@
-import cowsay  # type: ignore  # (No available type stubs for cowsay)
+"""Example project main module."""
+
+from cowsay import cow  # type: ignore  # (No available type stubs for cowsay)
 
 
 def hello():
-    cowsay.cow("Hello world!")
+    """Cow says hello."""
+    cow("Hello world!")

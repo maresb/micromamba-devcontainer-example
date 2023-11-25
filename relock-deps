@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Strict mode
+set -euo pipefail
+
+if [ ! -d "python/example_project" ]; then
+    echo "Execute this from the project root."
+    exit 1
+fi
+
+rm conda-lock.yml
+conda-lock --file conda-environment.yaml --file .devcontainer/dev-conda-environment.yaml

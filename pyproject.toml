@@ -13,7 +13,7 @@ license = "MIT"
 dependencies = [
     "cowsay >=5.0",
 ]
-requires-python = ">=3.10,<3.11"
+requires-python = ">=3.10,<3.13"
 
 [tool.hatch.version]
 path = "python/example_project/__init__.py"

@@ -31,7 +31,6 @@ This is an example project which uses [micromamba-devcontainer](https://github.c
   * `packages_dir`: The directory where `package_name` is located (often `src`), or `.` for the project root.
 
 * The project root should contain the subdirectory `[packages_dir]/[package_name]`, and moreover this subdirectory should contain an `__init__.py` file.
-* If your project uses Docker, ensure that your `.dockerignore` contains `.devcontainer/cache`.
 * Customize `.devcontainer/dev-conda-environment.yaml` with your desired Conda development packages.
 * Customize `.devcontainer/dev.Dockerfile` to install (a skeleton of) your project, preferrably in editable mode (e.g. `pip install -e .`). This way the project dependencies will be installed in the devcontainer.
 * Customize the `extensions` and `settings` in `.devcontainer/devcontainer.json`.

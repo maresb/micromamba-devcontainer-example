@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/maresb/cookiecutter-micromamba-devcontainer",
-  "commit": "32645670098138cace0d2ce66222905bb575c36c",
+  "commit": "e1dab7a3c7bbaaee7e8e641298494a92433a5c32",
   "checkout": null,
   "context": {
     "cookiecutter": {

@@ -19,8 +19,6 @@
 		}
 	},
 	"overrideCommand": false,  // allow the entrypoint to run
-	// "onCreateCommand": ["/usr/local/bin/_configure_docker_group.sh"],
-	// "postCreateCommand": ["/usr/local/bin/_postCreateCommand.sh"],
 	"mounts": [
 		"source=pre-commit-cache-${localEnv:USER},target=/home/mambauser/.cache/pre-commit,type=volume",
 		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind,consistency=cached",
@@ -44,9 +42,6 @@
 				"jnoortheen.xonsh",
 			],
 			"settings": {
-				// Disable telemetry
-				"telemetry.enableTelemetry": false,
-
 				// Files to completely exclude from view
 				// (see also search.exclude and files.watcherExclude)
 				"files.exclude": {
@@ -60,7 +55,9 @@
 					".devcontainer/cache/*/[!\\.]*": true,
 				},
 
-				"python.editor.defaultFormatter": "charliermarsh.ruff",
+				"[python]": {
+					"editor.defaultFormatter": "charliermarsh.ruff",
+				},
 				"ruff.path": ["/opt/conda/bin/ruff"],
 				"ruff.interpreter": ["/opt/conda/bin/python"],
 
@@ -84,7 +81,6 @@
 				"jupyter.interactiveWindow.textEditor.magicCommandsAsComments": true,
 
 				// Path of the default Python environment
-				"python.pythonPath": "/opt/conda/bin/python",
 				"python.defaultInterpreterPath": "/opt/conda/bin/python",
 
 				// Disable the "conda activate base" command when opening a new terminal
@@ -96,8 +92,6 @@
 				// Make sure that key combos like Ctrl+K are not intercepted by VS Code
 				// when using the terminal
 				"terminal.integrated.allowChords": false,
-
-				"terminal.integrated.inheritEnv": false,
 			},
 		}
 	},
